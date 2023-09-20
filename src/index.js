@@ -1,17 +1,46 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+const rootElement = ReactDOM.createRoot(document.getElementById('root'));
+
+function Greeting() {
+  const title = 'Este es un componente!';
+  const married = true;
+  if (married) {
+    return (
+      <div>
+        <h1>{title}</h1>
+        <p>123 lorem</p>
+      </div>
+    );
+  }
+}
+
+function UserCard() {
+  const user = {
+    firstName: 'Robin',
+    lastName: 'Herrera',
+  };
+
+  return (
+    <div>
+      Mi nombre es {user.firstName} {user.lastName}.
+    </div>
+  );
+}
+
+function SumFunction() {
+  function add(x, y) {
+    return x + y;
+  }
+
+  return <div>{add(9, 8)}</div>;
+}
+
+rootElement.render(
+  <div>
+    <Greeting />
+    <UserCard />
+    <SumFunction />
+  </div>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
